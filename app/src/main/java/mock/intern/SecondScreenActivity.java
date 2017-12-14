@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SecondScreen extends AppCompatActivity {
+public class SecondScreenActivity extends AppCompatActivity {
     private static final String TAG = "Check from screen 2" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
