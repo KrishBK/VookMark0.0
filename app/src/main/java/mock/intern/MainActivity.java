@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getBaseContext(), SecondScreen.class);
+                Intent i = new Intent(getBaseContext(), SecondScreenActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putString("info1",editText.getText().toString());
                 i.putExtras(bundle);
@@ -83,13 +83,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
         Log.d(TAG, "onRestoreInstanceState: ");
     }
 
     // invoked when the activity may be temporarily destroyed, save the instance state here
     @Override
     public void onSaveInstanceState(Bundle outState) {
-
+        editText.setText("");
         Log.d(TAG, "onSaveInstanceState: "+editText.getText().toString());
         // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState);

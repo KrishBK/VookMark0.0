@@ -27,7 +27,7 @@ public class SecondScreenActivity extends AppCompatActivity {
         }
 
 
-       Button b = (Button) findViewById(R.id.button_prev);
+       Button b = findViewById(R.id.button_prev);
 
         b.setText("Count :"+newString.length());
         b.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +36,7 @@ public class SecondScreenActivity extends AppCompatActivity {
                 Intent i = new Intent(getBaseContext(), MainActivity.class);
                 i.putExtra("info1","From Second Screen");
                 startActivity(i);
+                finish();
             }
         });
 

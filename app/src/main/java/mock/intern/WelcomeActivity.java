@@ -1,5 +1,6 @@
 package mock.intern;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
@@ -90,7 +91,9 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(WelcomeActivity.this,"Redirect to wherever you want",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(i);
+                //Toast.makeText(WelcomeActivity.this,"Redirect to wherever you want",Toast.LENGTH_LONG).show();
             }
         });
 
