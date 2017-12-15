@@ -35,12 +35,20 @@ public class LoginActivity extends AppCompatActivity {
         f_p=findViewById(R.id.forgotPassword);
 
         link = findViewById(R.id.link_Logon);
-
+       f_p.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent i= new Intent(LoginActivity.this,ForgotPassword.class);
+               startActivity(i);
+               finish();
+           }
+       });
        link.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent i= new Intent(LoginActivity.this,Signup.class);
                startActivity(i);
+               finish();
            }
        });
         btn_Signin.setOnClickListener(new View.OnClickListener() {

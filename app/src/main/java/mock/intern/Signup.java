@@ -40,6 +40,7 @@ public class Signup extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i= new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(i);
+                
             }
         });
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
