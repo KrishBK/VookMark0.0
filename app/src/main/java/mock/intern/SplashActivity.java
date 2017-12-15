@@ -10,22 +10,25 @@ import mock.intern.WelcomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    SharedPreferences prefs = null;
+    static SharedPreferences prefs = null;
     @Override
      protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
         prefs = getSharedPreferences("firstRun", MODE_PRIVATE);
 
         if (prefs.getBoolean("firstRun", true)) {
             Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
             startActivity(intent);
-            prefs.edit().putBoolean("firstRun", false).commit();
+            finish();
+
         }
         else
         {
             //do nothing
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
 
 

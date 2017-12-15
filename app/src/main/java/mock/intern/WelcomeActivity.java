@@ -19,6 +19,8 @@ import mock.intern.OnBoardItem;
 import mock.intern.OnBoard_Adapter;
 import mock.intern.R;
 
+import static mock.intern.SplashActivity.prefs;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     private LinearLayout pager_indicator;
@@ -44,9 +46,9 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_boarding);
 
-        btn_get_started = (Button) findViewById(R.id.btn_get_started);
-        onboard_pager = (ViewPager) findViewById(R.id.pager_introduction);
-        pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
+        btn_get_started = findViewById(R.id.btn_get_started);
+        onboard_pager = findViewById(R.id.pager_introduction);
+        pager_indicator = findViewById(R.id.viewPagerCountDots);
 
         loadData();
 
@@ -90,8 +92,8 @@ public class WelcomeActivity extends AppCompatActivity {
         btn_get_started.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                prefs.edit().putBoolean("firstRun", false).commit();
+                Intent i = new Intent(getBaseContext(), LoginActivity.class);
                 startActivity(i);
                 //Toast.makeText(WelcomeActivity.this,"Redirect to wherever you want",Toast.LENGTH_LONG).show();
             }

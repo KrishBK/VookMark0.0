@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             mGameState = savedInstanceState.getString(GAME_STATE_KEY);
         }
+
+
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate:");
 
