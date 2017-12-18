@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.UserScreen;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -12,6 +12,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import mock.intern.LoginModule.Signin_activity;
+import mock.intern.LoginModule.Signup_activity;
+import mock.intern.R;
 
 public class MainActivity extends AppCompatActivity {
     VideoView mVideoView;

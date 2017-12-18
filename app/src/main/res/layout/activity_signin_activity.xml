@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chandru.myapplicationvook.Signin_activity">
+    tools:context="mock.intern.LoginModule.Signin_activity">
 
     <EditText
         android:id="@+id/email_signin"
@@ -12,7 +12,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_edittext"
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_email"
@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:ignore="MissingConstraints,UnknownId" />
 
     <EditText
@@ -47,17 +47,17 @@
         android:id="@+id/textEye_signin"
         android:layout_width="30dp"
         android:layout_height="20dp"
-        android:layout_marginBottom="388dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:drawable="@drawable/view_pwd"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/password_signin"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintBottom_toBottomOf="@+id/password_signin"
+        app:layout_constraintEnd_toEndOf="@+id/password_signin"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="@+id/password_signin"
+        app:layout_constraintTop_toTopOf="@+id/password_signin" />
 
     <Button
         android:id="@+id/button_signin"
@@ -65,7 +65,7 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/buttonstate"
         android:elevation="4dp"
         android:text="Sign In"
@@ -150,7 +150,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Forgot password?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

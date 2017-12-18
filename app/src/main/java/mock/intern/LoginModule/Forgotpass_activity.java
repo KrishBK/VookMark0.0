@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.LoginModule;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+
+import mock.intern.LandingPage.FirstScreen;
+import mock.intern.R;
 
 public class Forgotpass_activity extends AppCompatActivity {
     EditText email;

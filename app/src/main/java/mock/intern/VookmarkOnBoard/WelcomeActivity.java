@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.VookmarkOnBoard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,10 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-import static com.example.chandru.myapplicationvook.Splash.prefs;
+import mock.intern.R;
+import mock.intern.Splash;
+
+import static mock.intern.Splash.prefs;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -83,8 +86,9 @@ public class WelcomeActivity extends AppCompatActivity {
         btn_get_started.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 prefs.edit().putBoolean("firstRun", false).commit();
-                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                Intent i = new Intent(getBaseContext(),Splash.class);
                 startActivity(i);
                 //Toast.makeText(WelcomeActivity.this,"Redirect to wherever you want",Toast.LENGTH_LONG).show();
             }

@@ -1,7 +1,8 @@
-package mock.intern;
+package mock.intern.LoginModule;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
@@ -13,6 +14,13 @@ import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import mock.intern.LandingPage.FirstScreen;
+import mock.intern.UserScreen.MainActivity;
+import mock.intern.Model.PrefManager;
+import mock.intern.R;
+
+import static mock.intern.Splash.u_login;
 
 public class Signup_activity extends AppCompatActivity {
 
@@ -26,13 +34,12 @@ public class Signup_activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_signup_activity);
         setup_signup = 1;
-//        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         pass_signup = (EditText) findViewById(R.id.password);
         name_signup = (EditText) findViewById(R.id.name);
         email_signup = (EditText) findViewById(R.id.email);
         txt_signup=findViewById(R.id.textEye);
         Signin_txtbtn = (TextView) findViewById(R.id.Signin_txtbtn);
-        txt_signup.setBackgroundResource(R.drawable.hide_pwd);
+        txt_signup.setBackgroundResource(R.drawable.view_pwd);
 
 
         findViewById(R.id.close_signup).setOnClickListener(new View.OnClickListener() {
@@ -45,21 +52,22 @@ public class Signup_activity extends AppCompatActivity {
         findViewById(R.id.textEye).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (setup_signup == 1) {
-                    setup_signup = 0;
-                    pass_signup.setTransformationMethod(null);
-                    if (pass_signup.getText().length() > 0)
-                        pass_signup.setSelection(pass_signup.getText().length());
-
-                    txt_signup.setBackgroundResource(R.drawable.view_pwd);
-                } else {
-                    setup_signup = 1;
-                    pass_signup.setTransformationMethod(new PasswordTransformationMethod());
-                    if (pass_signup.getText().length() > 0)
-                        pass_signup.setSelection(pass_signup.getText().length());
                     txt_signup.setBackgroundResource(R.drawable.hide_pwd);
-
-
+                    pass_signup.setTransformationMethod(null);
+                    if (pass_signup.getText().length() > 0) {
+                        pass_signup.setSelection(pass_signup.getText().length());
+                        setup_signup=0;
+                    }
+                }
+                else {
+                    pass_signup.setTransformationMethod(new PasswordTransformationMethod());
+                    if (pass_signup.getText().length() > 0) {
+                        pass_signup.setSelection(pass_signup.getText().length());
+                        txt_signup.setBackgroundResource(R.drawable.view_pwd);
+                        setup_signup=1;
+                    }
                 }
             }
         });
@@ -94,6 +102,7 @@ public class Signup_activity extends AppCompatActivity {
     public void onSignupSuccess() {
         findViewById(R.id.signupbtn).setEnabled(true);
         setResult(RESULT_OK, null);
+        u_login.edit().putBoolean("userStatus", true).commit();
         startActivity(new Intent(Signup_activity.this,FirstScreen.class));
         finish();
     }
@@ -117,7 +126,7 @@ public class Signup_activity extends AppCompatActivity {
         matcher = pattern.matcher(password);
 
         if (TextUtils.isEmpty(name)) {
-            name_signup.setError("Enter your name");
+         name_signup.setError("You need to enter a name");
             valid = false;
         }
         else if (name.length() < 3) {

@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.LoginModule;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,12 @@ import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.example.chandru.myapplicationvook.Splash.u_login;
+import mock.intern.LandingPage.FirstScreen;
+import mock.intern.UserScreen.MainActivity;
+import mock.intern.Model.PrefManager;
+import mock.intern.R;
+
+import static mock.intern.Splash.u_login;
 
 
 public class Signin_activity extends AppCompatActivity {
@@ -33,7 +38,7 @@ public class Signin_activity extends AppCompatActivity {
         email_signin =(EditText)findViewById(R.id.email_signin);
         pass_signin =(EditText)findViewById(R.id.password_signin);
         txt_signin =(TextView) findViewById(R.id.textEye_signin);
-        txt_signin.setBackgroundResource(R.drawable.hide_pwd);
+        txt_signin.setBackgroundResource(R.drawable.view_pwd);
 
         txt_signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,17 +46,17 @@ public class Signin_activity extends AppCompatActivity {
                 if(setup_signin ==1){
                     setup_signin =0;
                     pass_signin.setTransformationMethod(null);
-                    if(pass_signin.getText().length() > 0)
+                    if(pass_signin.getText().length() > 0) {
                         pass_signin.setSelection(pass_signin.getText().length());
-
-                    txt_signin.setBackgroundResource(R.drawable.view_pwd);
+                        txt_signin.setBackgroundResource(R.drawable.hide_pwd);
+                    }
                 }
                 else {
                     setup_signin =1;
                     pass_signin.setTransformationMethod(new PasswordTransformationMethod());
                     if(pass_signin.getText().length()>0)
                         pass_signin.setSelection(pass_signin.getText().length());
-                    txt_signin.setBackgroundResource(R.drawable.hide_pwd);
+                    txt_signin.setBackgroundResource(R.drawable.view_pwd);
 
 
 

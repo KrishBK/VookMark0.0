@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.Model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,7 +10,7 @@ public class PrefManager {
 
     Context context;
 
-    PrefManager(Context context) {
+    public PrefManager(Context context) {
         this.context = context;
     }
 

@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.VookmarkOnBoard;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import mock.intern.R;
 
 /**
  * Created by BalaKrishnan on 14-12-2017.

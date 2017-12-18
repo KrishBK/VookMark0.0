@@ -1,4 +1,4 @@
-package mock.intern;
+package mock.intern.VookmarkOnBoard;
 
 /**
  * Created by BalaKrishnan on 14-12-2017.
