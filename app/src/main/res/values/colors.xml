@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2D9CDB</color>
-    <color name="colorPrimaryDark">#2992CD</color>
-    <color name="colorAccent">#045465</color>
-    <color name="black">#000000</color>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#2992cd</color>
+    <color name="colorAccent">#595858</color>
+    <color name="gray">#f1efef</color>
+    <color name="textcolor">#828282</color>
     <color name="white">#FFFFFF</color>
 
     <!--OnBoard-->
@@ -12,10 +13,6 @@
     <color name="idle_dot">#662D9CDB</color>
     <color name="ob_header">#4A4A4A</color>
     <color name="ob_desc">#4A4A4A</color>
-
-    <!--Button Color-->
-    <color name="indigo">#ea6913</color>
-    <color name="pink"> #fdac21</color>
 
 
 </resources>

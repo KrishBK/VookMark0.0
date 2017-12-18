@@ -1,101 +1,80 @@
 package mock.intern;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "Check from Screen 1" ;
-
-    EditText editText;
-    String mGameState, GAME_STATE_KEY,TEXT_VIEW_KEY ;
-    Button next;
+    VideoView mVideoView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            mGameState = savedInstanceState.getString(GAME_STATE_KEY);
-        }
-
-
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate:");
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        editText=findViewById(R.id.editText);
-        next= findViewById(R.id.button_next);
+        mVideoView = findViewById(R.id.bgvideoView);
 
-        String newString;
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.saveas);
 
-        if (savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                newString= null;
-            } else {
-                newString= extras.getString("STRING_I_NEED");
+        mVideoView.setVideoURI(uri);
+        mVideoView.start();
+
+
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setLooping(true);
             }
-        } else {
-            newString= (String) savedInstanceState.getSerializable("STRING_I_NEED");
-        }
+        });
 
-        next.setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(MainActivity.this,Signup_activity.class);
+        startActivity(i);
+    }
+});
+
+        Button  button2 = findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getBaseContext(), SecondScreenActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("info1",editText.getText().toString());
-                i.putExtras(bundle);
-                startActivity(i);
+                Toast.makeText(MainActivity.this, "Sign in page redirection ", Toast.LENGTH_SHORT).show();
+                Intent intent_to_signin=new Intent(MainActivity.this,Signin_activity.class);
+                startActivity(intent_to_signin);
+
             }
         });
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause: ");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop: ");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy: ");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume:");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart:");
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        Log.d(TAG, "onRestoreInstanceState: ");
-    }
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Toast.makeText(MainActivity.this, "Create Text", Toast.LENGTH_LONG).show();
+        }
 
-    // invoked when the activity may be temporarily destroyed, save the instance state here
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        editText.setText("");
-        Log.d(TAG, "onSaveInstanceState: "+editText.getText().toString());
-        // call superclass to save any view hierarchy
-        super.onSaveInstanceState(outState);
+        return super.onOptionsItemSelected(item);
     }
 
 

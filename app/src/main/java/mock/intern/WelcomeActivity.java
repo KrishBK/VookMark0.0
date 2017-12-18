@@ -11,23 +11,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import mock.intern.OnBoardItem;
-import mock.intern.OnBoard_Adapter;
-import mock.intern.R;
-
-import static mock.intern.SplashActivity.prefs;
+import static com.example.chandru.myapplicationvook.Splash.prefs;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     private LinearLayout pager_indicator;
     private int dotsCount;
     private ImageView[] dots;
-
-
 
     private ViewPager onboard_pager;
 
@@ -37,9 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     int previous_pos=0;
 
-
     ArrayList<OnBoardItem> onBoardItems=new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +84,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 prefs.edit().putBoolean("firstRun", false).commit();
-                Intent i = new Intent(getBaseContext(), LoginActivity.class);
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
                 startActivity(i);
                 //Toast.makeText(WelcomeActivity.this,"Redirect to wherever you want",Toast.LENGTH_LONG).show();
             }
@@ -108,9 +99,9 @@ public class WelcomeActivity extends AppCompatActivity {
     public void loadData()
     {
 
-        int[] header = {R.string.ob_header1, R.string.ob_header2, R.string.ob_header3};
-        int[] desc = {R.string.ob_desc1, R.string.ob_desc2, R.string.ob_desc3};
-        int[] imageId = {R.drawable.onboard_page1, R.drawable.onboard_page2, R.drawable.onboard_page3};
+        int[] header = {R.string.ob_header1, R.string.ob_header2, R.string.ob_header3,R.string.ob_header4,R.string.ob_header5};
+        int[] desc = {R.string.ob_desc1, R.string.ob_desc2, R.string.ob_desc3,R.string.ob_desc4,R.string.ob_desc5};
+        int[] imageId = {R.drawable.ic_onboard1,R.drawable.ic_onboard2,R.drawable.ic_onboard3,R.drawable.ic_onboard4,R.drawable.ic_onboard5,};
 
         for(int i=0;i<imageId.length;i++)
         {
