@@ -9,32 +9,40 @@
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon_logo"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Splash"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+
+        </activity>
+        <activity
+            android:name=".UserScreen.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginModule.Signup_activity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".LoginModule.Signin_activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginModule.Forgotpass_activity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".VookmarkOnBoard.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LandingPage.FirstScreen"
+            android:screenOrientation="portrait" />
+        <activity android:name=".LandingPage.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".UserScreen.MainActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".LoginModule.Signup_activity"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".LoginModule.Signin_activity"  android:screenOrientation="portrait"/>
-        <activity android:name=".LoginModule.Forgotpass_activity"  android:screenOrientation="portrait" >
-
-        </activity>
-        <activity android:name=".VookmarkOnBoard.WelcomeActivity"  android:screenOrientation="portrait"></activity>
-        <activity android:name=".LandingPage.FirstScreen"  android:screenOrientation="portrait"></activity>
+    </activity>
     </application>
-
 
 </manifest>
